@@ -1,6 +1,8 @@
 import sys
 import pyautogui as pyauto
 import screeninfo
+from infi.systray import SysTrayIcon
+
 
 class Screen:
     def create(self, key, n, x, y, w, h):
@@ -20,6 +22,8 @@ class Screen:
         self.n = int(mon.name[-1:])
 
 def main():
+    print("caca")
+
     key_combo = ""
 
     curr_screen = 1
@@ -50,10 +54,14 @@ def main():
         for screen in screens:
             if bounds(mouse_pos.x, mouse_pos.y, screen.x, screen.y, screen.w, screen.h):
                 if screen.n != curr_screen:
+                    print("swaped screens")
                     curr_screen = screen.n
                     to_exec = "press_combo(" + key_combo + "'" + screen.key + "')"
                     exec(to_exec)
             
+
+#def on_mouse_move(x, y):
+
 
 def press_combo(*keys):
     for key in keys:
@@ -65,4 +73,7 @@ def press_combo(*keys):
 def bounds(mx, my, x, y, w, h):
     return mx > x and mx < x+w and my > y and my < y+h
 
+menu_options = ((None, None, main),)
+systray = SysTrayIcon("", "PyOBSwitching", menu_options)
+systray.start()
 main()
