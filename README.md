@@ -18,7 +18,7 @@ Examples:
  `python pyobswitching.py [keys for each monitor] [shared bind]`
 
 Example: `python pyobswitching.py p o ctrl alt shift`
-`p o` --> keys for each monitor
-`ctrl alt shift` --> shared bind
+- `p o` --> keys for each monitor
+- `ctrl alt shift` --> shared bind
 
-***Beware that you'll need to input  as many keys as  monitors you have connectet  even if you don't use them in OBS***
+***Beware that you'll need to input  as many keys as  monitors you have connected  even if you don't use them in OBS***
